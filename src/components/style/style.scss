@@ -1,0 +1,169 @@
+html, body, button, a, li, ul, input{
+    all: unset;
+    transition: 0.2s all ease-in-out;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+$color1: #2D4059;
+$color2: #EA5455;
+$color3: #F07B3F;
+$color4: #FFD460;
+$color5: #5D4558;
+$color6: #8C4A57;
+
+$buttonSize: 150px;
+
+@mixin center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+body{
+    @include center();
+    height: 100vh;
+    background: linear-gradient(#fA6465 0% , #EA5455 100% );
+    font-family: "Poppins", sans-serif;
+}
+
+.choice{
+    margin-top: -5vh;
+    @include center();
+    justify-content: space-between;
+    
+    .choice-button{
+        cursor: pointer;
+        border-radius: 25px;
+        transition: 0.2s all ease-in-out;
+        padding: 50px;
+        img{
+            width:$buttonSize;
+            height: $buttonSize;
+            transition: 0.2s all ease-in-out;
+        }
+
+        &:nth-child(1){
+            background-color: $color4;
+        }
+        &:nth-child(2){
+            background-color: $color1;
+        }
+        &:nth-child(3){
+            background-color: $color3;
+        }
+
+        &:hover{
+            padding:30px;
+            img{
+                width: $buttonSize+15px;
+                height: $buttonSize+15px;
+            }
+        }
+
+        &+.choice-button{
+            margin-left: 70px;
+        }
+
+    }
+
+    input{
+        width: 500px;
+        background-color: $color5;
+        color:#fff;
+        padding: 22px;
+        border-radius: 15px;
+        cursor: not-allowed;
+        opacity: 0.5;
+        &::placeholder{
+            color:#aaa;
+        }
+        &:focus{
+            padding: 20px;
+            border-radius: 17px;
+            width: 480px;
+        }
+    }
+}
+.accept{
+    @include center();
+    margin-top: 150px;
+    color:#fff;
+
+    button{
+        cursor: pointer;
+        background-color: $color6;
+        padding: 10px 100px;
+        border-radius: 15px;
+        font-size: 28px;
+
+        &:hover{
+            padding: 5px 70px;
+            font-size: 32px;
+        }
+    }
+}
+
+
+.result{
+    @extend .choice;
+    font-size:62px;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+.shadowSelection{
+    box-shadow: 0 7px 5px 10px #ffff;
+}
+.disabled{
+    opacity: 0.3;
+    cursor:none !important;
+}
+
+
+
+
+@media only screen and (max-width:650px) {
+    .choice{
+
+        .choice-button{
+            padding: 20px;
+            border-radius: 15px;
+            &:hover{
+                padding:10px;
+                img{
+                    width: 50px+15px;
+                    height: 50px+15px;
+                }
+            }
+            img{
+                width: 50px;
+                height: 50px;
+            }
+
+            &+.choice-button{
+                margin-left: 25px;
+            }
+        }
+        input{width: 70vw;font-size: 10px;
+        &:focus{
+            padding: 20px;
+            border-radius: 17px;
+            width: 77vw;
+        }}}
+    .accept button{padding:10px 20vw;font-size: 18px;
+        &:hover{
+            padding: 5px 30px;
+            font-size: 22px; 
+        }}
+    
+  }
